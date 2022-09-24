@@ -1,0 +1,21 @@
+<div class="bg-ll-blue py-2 px-4">
+  <div class="flex flex-col lg:flex-row lg:justify-between text-white lg:items-center">
+    {{> searchbar}}
+    <div class=" flex-col lg:flex-row lg:items-center hidden lg:flex" >
+        <a href="tel:+1 (646) 713-0937" class="flex items-center p-4 hover:underline">
+            <div class="mr-2">{{> icon-phone}}</div>
+            <div>(646) 713-0937</div>
+        </a>
+        <a href="sms:+1 (646) 849-2749" class="flex items-center p-4 hover:underline">
+            <div class="mr-2">{{> icon-text}}</div>
+            <div>(646) 849-2749</div>
+        </a>
+        <a href="email:reserve@localocker.com" class="flex items-center p-4 hover:underline">
+            <div class="mr-2">{{> icon-email}}</div>
+            <div>reserve@localocker.com</div>
+        </a>
+        <a href="#faqs" class="block hover:underline font-medium p-4">FAQ</a>
+    </div>
+  </div>
+  <div id="header-error"></div>
+</div>

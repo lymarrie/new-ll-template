@@ -1,0 +1,48 @@
+<div className="grid gap-y-5">
+    <div className="mt-4">
+        <h1>{{c_pageName}}</h1>
+        <h3 className='text-2xl font-extrabold  text-ll-blue'>{{c_pageSubtitleH2}}</h3>
+        <div className="location-reviews-count"></div>        
+    </div>
+    
+    <div className="grid gap-y-5">
+        <div className="grid gap-x-2 grid-cols-2">
+            <div className='' id=''>
+                <h3>Address</h3>
+                <a id="" className="hover:underline" href="https://www.google.com/maps/dir/?api=1&destination={{name}} {{address.line1}} {{address.city}} {{address.region}} {{address.postalCode}}">{{address.line1}} {{address.city}}, {{address.region}} {{address.postalCode}}<p><i>{{c_crossStreets}}</i></p></a>
+                <div className="hidden" id="address">{{address.line1}} {{address.city}} {{address.region}} {{address.postalCode}}</div>
+            </div>
+            <div className=''>
+                <h3>Phone</h3>
+                <p>{{phoneNumber "US" mainPhone "NATIONAL"}}</p>
+            </div>
+        </div>
+
+        <div className="grid gap-y-5 sm:grid-cols-2 md:gap-x-5">
+            <div className=''>
+                <details className="">
+                    <summary className="summary text-lg font-bold text-ll-red">  
+                        Access Hours
+                        <div className="subtitle text-ll-blue text-base font-normal">
+                            {{c_accessHoursSummary}}
+                        </div>
+                    </summary>
+                {{>hours accessHours}}
+                </details>
+            </div>
+            <div className=''>
+                <details>
+                    <summary className="summary text-lg font-bold text-ll-red">
+                        Support Hours
+                        <div className="subtitle text-ll-blue text-base font-normal">
+                            Expand for details
+                        </div>
+                    </summary>
+                {{>hours hours}}
+                </details>
+            </div>
+        </div>
+
+    </div>
+
+</div>

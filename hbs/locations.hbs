@@ -1,0 +1,115 @@
+---
+{
+    "stream": {
+        "$id": "sites-locations",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+        "fields": [
+            "id", 
+            "uid",
+            "meta",
+            "name", 
+            "address", 
+            "accessHours",
+            "c_accessHoursSummary",
+            "c_features",
+            "frequentlyAskedQuestions",
+            "mainPhone",
+            "geocodedCoordinate",
+            "hours",
+            "services",
+            "description", 
+            "slug",
+            "logo",
+            "paymentOptions",
+            "neighborhood",
+            "photoGallery",
+            "c_clutterUnitsTableText",
+            "c_thirdPartyVendorImage",
+            "c_thirdPartyVendorColor",
+            "c_heroImagePage",
+            "c_otherImagesPage",
+            "c_crossStreets",
+            "c_locationNickname",
+            "c_pageTextBlockTitleH3",
+            "c_pageTextBlockText",
+            "c_otherNeighborhoodsTitle",
+            "c_bookATourLink",
+            "c_otherNeighborhoods.neighborhood",
+            "c_otherNeighborhoods.websiteUrl",
+            "c_otherNeighborhoods.slug",
+            "c_displayBookATour",
+            "c_displayClutterUnit",
+            "c_displayNearbyLocations",
+            "c_displayFindStorageBy",
+            "c_pageName",
+            "c_pageSubtitleH2",
+            "c_clutterLink"
+        ], 
+        "filter" : {
+            "savedFilterIds": [
+                "551464658"
+            ]
+        },
+      "localization": {
+          "locales": ["en"]
+      }   
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{>head }}
+        <title>{{name}} - {{neighborhood}}</title>
+        {{>schema}}
+        <link rel="shortcut icon" type="image/jpg" href="/images/favicon-32x32.png"/>
+    </head>
+    <body>      
+        <div class="flex min-h-screen w-full"> 
+            {{>sidebar}}
+            <div class="w-full">
+                {{>nav}}  
+                <div class="centered-container">
+                    {{>backtolocator}}
+                    <div class="grid lg:grid-cols-5 gap-x-8">
+                        <div class="lg:col-span-3">
+                            {{> locationdetails}}  
+                            <div class="section units-table">
+                                {{>units}}
+                            </div>                        
+                        </div>
+                        <div class="grid space-y-6 lg:col-span-2">
+                            <div class="w-full">{{>staticmap geocodedCoordinate}}</div>
+                            <div class="px-3 md:px-0">{{>carousel}}</div>
+                            <div class="grid gap-y-5">
+                                {{#if c_displayBookATour}}
+                                    {{>bookATour c_bookATourLink}}
+                                {{/if}}
+                                {{>featurelist c_features}}
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="section pt-5 md:pt-0">{{>reviews}}</div> 
+                    {{#if c_displayNearbyLocations}}
+                        <div class="section">{{>nearby geocodedCoordinate}}</div>
+                    {{/if}}
+                    <div class="section">{{>pageTextBlock}}</div>
+                    <a id="faqs">
+                        <div class="section">{{>faqs frequentlyAskedQuestions}}</div>
+                    </a>
+                    {{#if c_displayFindStorageBy}}
+                        <div class="section">{{>otherNeighborhoods (sortBy c_otherNeighborhoods "neighborhood")}}</div>
+                    {{/if}}
+                </div>
+                <div class="w-full bg-gray-100">
+                    <div class="centered-container">
+                        {{>footer}}
+                    </div>
+                </div>
+            </div>
+        </div>  
+        {{>bodyTag}}      
+    </body> 
+</html>
